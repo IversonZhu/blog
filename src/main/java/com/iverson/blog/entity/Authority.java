@@ -6,7 +6,7 @@ import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
 
 /**
- * Description:
+ * Description: 权限实体类
  *
  * @author Iverson
  * @version 1.00
