@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1/blog?characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password:
+    timeout: 1000ms
+    jedis:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    mode: HTML5
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop

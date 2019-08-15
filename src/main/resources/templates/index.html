@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="~{fragments/header :: header}">
+</head>
+<body>
+    <div class="container blog-content-container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-block">
+                        <h2 class="card-title">
+                            <span>
+                                <a href="/" title="Iverson">
+                                    <img class="blog-avatar-50" src="../static/images/avatar-defualt.jpg" alt="Iverson"/>
+                                </a>
+                            </span>
+                            <a class="card-link" href="">OAuth 2.0 认证的原理与实践</a>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+<script src="../static/js/jquery-3.1.1.min.js"></script>
+<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+<script src="../static/js/bootstrap.min.js"></script>
+</body>
+</html>
