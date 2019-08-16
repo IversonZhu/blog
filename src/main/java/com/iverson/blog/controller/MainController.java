@@ -1,9 +1,17 @@
 package com.iverson.blog.controller;
 
+import com.iverson.blog.entity.Authority;
+import com.iverson.blog.entity.User;
+import com.iverson.blog.service.AuthorityService;
+import com.iverson.blog.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description: 主页跳转控制器
@@ -14,6 +22,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class MainController {
+
+    private static final Long ROLE_USER_AUTHORITY_ID = 2L;
+
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private AuthorityService authorityService;
 
     @GetMapping("/")
     public String root() {
@@ -40,5 +55,19 @@ public class MainController {
    @GetMapping("/register")
    public String register() {
         return "register";
+   }
+
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
+   @PostMapping("/register")
+   public String registerUser(User user) {
+       List<Authority> authorities = new ArrayList<>();
+       authorities.add(authorityService.getAuthorityById(ROLE_USER_AUTHORITY_ID));
+       user.setAuthorities(authorities);
+       userService.saveUser(user);
+       return "redirect:/login";
    }
 }

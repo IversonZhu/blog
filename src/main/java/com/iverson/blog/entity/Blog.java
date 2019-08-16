@@ -7,7 +7,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.lang.annotation.Documented;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -20,7 +19,7 @@ import java.util.List;
  */
 @Entity
 @Data
-@Document(indexName = "blog", type = "blog")
+//@Document(indexName = "blog", type = "blog")
 public class Blog implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -34,7 +33,7 @@ public class Blog implements Serializable {
     private String title;
 
     @NotEmpty(message = "摘要不能为空")
-    @Size(min = 10, max = 300)
+    @Size(min = 2, max = 300)
     @Column(nullable = false)
     private String summary;
 
@@ -114,6 +113,11 @@ public class Blog implements Serializable {
         }
     }
 
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+        this.commentSize = this.comments.size();
+    }
+
     /**
      * 点赞
      * @param vote
@@ -144,6 +148,11 @@ public class Blog implements Serializable {
                 break;
             }
         }
+        this.voteSize = this.votes.size();
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
         this.voteSize = this.votes.size();
     }
 }

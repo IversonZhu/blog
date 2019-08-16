@@ -18,21 +18,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/u")
 public class UserSpaceController {
 
-    @GetMapping("/{username}")
-    public String userSpace(@PathVariable("username") String username) {
-        return "/userspace/user";
-    }
-
-    @GetMapping("/{username}")
-    public String listBlogsByOrder(@PathVariable("username") String username,
-                                   @RequestParam(value = "order", required = false, defaultValue = "new") String order,
-                                   @RequestParam(value = "category", required = false) Long category,
-                                   @RequestParam(value = "keyword", required = false) String keyword) {
-        if(category != null) {
-            return "/userspace/u";
-        }else if(!StringUtils.isEmpty(keyword)) {
-            return "/userspace/u";
-        }
-        return "/userspace/u";
-    }
+//    @GetMapping("/{username}")
+//    public String userSpace(@PathVariable("username") String username) {
+//        return "/userspace/user";
+//    }
+//
+//    @GetMapping("/{username}")
+//    public String listBlogsByOrder(@PathVariable("username") String username,
+//                                   @RequestParam(value = "order", required = false, defaultValue = "new") String order,
+//                                   @RequestParam(value = "category", required = false) Long category,
+//                                   @RequestParam(value = "keyword", required = false) String keyword) {
+//        if(category != null) {
+//            return "/userspace/u";
+//        }else if(!StringUtils.isEmpty(keyword)) {
+//            return "/userspace/u";
+//        }
+//        return "/userspace/u";
+//    }
 }

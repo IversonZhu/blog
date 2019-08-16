@@ -22,5 +22,3 @@ spring:
     mode: HTML5
   jpa:
     show-sql: true
-    hibernate:
-      ddl-auto: create-drop

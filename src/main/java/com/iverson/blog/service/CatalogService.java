@@ -5,7 +5,7 @@ package com.iverson.blog.service;
  *
  * @author Iverson
  * @version 1.00
- * @date 2019/8/15
+ * @date 2019/8/16
  */
-public class TestService {
+public interface CatalogService {
 }
