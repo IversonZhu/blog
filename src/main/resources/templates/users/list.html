@@ -30,21 +30,17 @@
 					<td th:text="${user.username}">1</td>
 					<td th:text="${user.name}">waylau</td>
 					<td th:text="${user.email}">waylau</td>
-					<td th:text="${user.authorities}">waylau</td>
+					<td th:text="${user.authorities[0]+'' == 'ROLE_ADMIN'?'管理员':'博主'}">**</td>
 					<td>
 						<div>
-							<a class="blog-edit-user" data-toggle="modal"
-								data-target="#flipFlop" role="button"
-								data-th-attr="userId=${user.id}"> <i
-								class="fa fa-pencil-square-o" aria-hidden="true"></i>
-							</a> <a class="blog-delete-user" role="button"
-								data-th-attr="userId=${user.id}"> <i class="fa fa-times"
-								aria-hidden="true"></i>
+							<a class="blog-edit-user" data-toggle="modal" data-target="#flipFlop" role="button" data-th-attr="userId=${user.id}">
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+							</a> <a class="blog-delete-user" role="button" data-th-attr="userId=${user.id}">
+								<i class="fa fa-times" aria-hidden="true"></i>
 							</a>
 						</div>
 					</td>
 				</tr>
-
 			</tbody>
 
 		</table>

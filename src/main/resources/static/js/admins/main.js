@@ -13,7 +13,6 @@ $(function() {
 		$.ajax({
 			url: url,
 			success: function (data) {
-				console.log("data",data)
 				$("#rightContainer").html(data);
             },
 			error: function () {

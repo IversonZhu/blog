@@ -6,6 +6,7 @@ import com.iverson.blog.handler.ConstraintViolationExceptionHandler;
 import com.iverson.blog.service.AuthorityService;
 import com.iverson.blog.service.UserService;
 import com.iverson.blog.vo.Response;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,6 +30,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/users")
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -54,6 +56,7 @@ public class UserController {
         Pageable pageable = PageRequest.of(pageIndex,pageSize);
         Page<User> page = userService.listUserByNameLike(name, pageable);
         List<User> users = page.getContent();
+        log.info("result = {}", users.get(0).toString());
         model.addAttribute("page",page);
         model.addAttribute("userList", users);
         return new ModelAndView(async ? "users/list :: #mainContainerRepleace" : "users/list", "userModel",model);
@@ -128,6 +131,6 @@ public class UserController {
     public ModelAndView modifyForm(@PathVariable("id") Long id, Model model) {
         User user = userService.getUserById(id);
         model.addAttribute("user", user);
-        return new ModelAndView("users/edit", "userModel", model);
+        return new ModelAndView("/users/edit", "userModel", model);
     }
 }
