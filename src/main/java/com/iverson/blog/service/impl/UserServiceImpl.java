@@ -6,6 +6,9 @@ import com.iverson.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -20,7 +23,7 @@ import java.util.List;
  */
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements UserService, UserDetailsService {
 
     @Autowired
     private UserDao userDao;
@@ -63,5 +66,10 @@ public class UserServiceImpl implements UserService {
     public Page<User> listUserByNameLike(String name, Pageable pageable) {
         name = "%" + name + "%";
         return userDao.findByNameLike(name,pageable);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userDao.findByUsername(username);
     }
 }

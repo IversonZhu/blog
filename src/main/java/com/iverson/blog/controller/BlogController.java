@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2019/8/15
  */
 @Controller
-@RequestMapping("/blog")
+@RequestMapping("/blogs")
 @Slf4j
 public class BlogController {
 

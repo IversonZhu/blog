@@ -22,3 +22,6 @@ spring:
     mode: HTML5
   jpa:
     show-sql: true
+file:
+  server:
+    url: http://localhost:8080/uploads

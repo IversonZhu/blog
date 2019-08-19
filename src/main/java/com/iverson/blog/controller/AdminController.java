@@ -22,7 +22,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/admins")
 public class AdminController {
-
     /**
      * 获取后台管理主页面
      * @param model
