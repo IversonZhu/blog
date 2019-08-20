@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -43,7 +44,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Transactional
     @Override
     public void removeUser(Long id) {
-        userDao.deleteById(id);
+        userDao.delete(id);
     }
 
     @Transactional
@@ -66,6 +67,11 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public Page<User> listUserByNameLike(String name, Pageable pageable) {
         name = "%" + name + "%";
         return userDao.findByNameLike(name,pageable);
+    }
+
+    @Override
+    public List<User> listUsersByUsernames(Collection<String> usernameList) {
+        return userDao.findByUsernameIn(usernameList);
     }
 
     @Override
