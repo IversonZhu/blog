@@ -3,6 +3,7 @@ package com.iverson.blog.service.impl;
 import com.iverson.blog.dao.BlogDao;
 import com.iverson.blog.entity.Blog;
 import com.iverson.blog.entity.Catalog;
+import com.iverson.blog.entity.Comment;
 import com.iverson.blog.entity.User;
 import com.iverson.blog.entity.es.EsBlog;
 import com.iverson.blog.service.BlogService;
@@ -10,6 +11,7 @@ import com.iverson.blog.service.EsBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -86,5 +88,21 @@ public class BlogServiceImpl implements BlogService {
         blogDao.delete(id);
         EsBlog esBlog = esBlogService.getEsBlogById(id);
         esBlogService.removeEsBlog(esBlog.getId());
+    }
+
+    @Override
+    public Blog createComment(Long blogId, String commentContent) {
+        Blog originalBlog = blogDao.findOne(blogId);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Comment comment = new Comment(user, commentContent);
+        originalBlog.addComment(comment);
+        return this.saveBlog(originalBlog);
+    }
+
+    @Override
+    public void removeComment(Long blogId, Long id) {
+        Blog originalBlog = blogDao.findOne(blogId);
+        originalBlog.removeComment(id);
+        this.saveBlog(originalBlog);
     }
 }

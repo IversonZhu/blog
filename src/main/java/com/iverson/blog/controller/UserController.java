@@ -53,7 +53,7 @@ public class UserController {
                              @RequestParam(value = "pageSize", required = false, defaultValue = "10") int pageSize,
                              @RequestParam(value = "name", required = false, defaultValue = "") String name,
                              Model model) {
-        Pageable pageable = PageRequest.of(pageIndex,pageSize);
+        Pageable pageable = new PageRequest(pageIndex,pageSize);
         Page<User> page = userService.listUserByNameLike(name, pageable);
         List<User> users = page.getContent();
         log.info("result = {}", users.get(0).toString());
