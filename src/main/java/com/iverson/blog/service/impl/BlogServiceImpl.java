@@ -1,10 +1,7 @@
 package com.iverson.blog.service.impl;
 
 import com.iverson.blog.dao.BlogDao;
-import com.iverson.blog.entity.Blog;
-import com.iverson.blog.entity.Catalog;
-import com.iverson.blog.entity.Comment;
-import com.iverson.blog.entity.User;
+import com.iverson.blog.entity.*;
 import com.iverson.blog.entity.es.EsBlog;
 import com.iverson.blog.service.BlogService;
 import com.iverson.blog.service.EsBlogService;
@@ -103,6 +100,25 @@ public class BlogServiceImpl implements BlogService {
     public void removeComment(Long blogId, Long id) {
         Blog originalBlog = blogDao.findOne(blogId);
         originalBlog.removeComment(id);
+        this.saveBlog(originalBlog);
+    }
+
+    @Override
+    public Blog createVote(Long blogId) {
+        Blog originalBlog = blogDao.findOne(blogId);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Vote vote = new Vote(user);
+        boolean isExist = originalBlog.addVote(vote);
+        if (isExist) {
+            throw new IllegalArgumentException("该用户已经点过赞了");
+        }
+        return this.saveBlog(originalBlog);
+    }
+
+    @Override
+    public void removeVote(Long blogId, Long id) {
+        Blog originalBlog = blogDao.findOne(blogId);
+        originalBlog.removeVote(id);
         this.saveBlog(originalBlog);
     }
 }

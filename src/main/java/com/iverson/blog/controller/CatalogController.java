@@ -115,7 +115,7 @@ public class CatalogController {
     }
 
     /**
-     *
+     * 据ID获取分类信息
      * @param id
      * @param model
      * @return

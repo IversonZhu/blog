@@ -3,6 +3,7 @@ package com.iverson.blog.service;
 import com.iverson.blog.entity.Blog;
 import com.iverson.blog.entity.Catalog;
 import com.iverson.blog.entity.User;
+import com.iverson.blog.entity.Vote;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -80,4 +81,17 @@ public interface BlogService {
      * @param id
      */
     void removeComment(Long blogId, Long id);
+
+    /**
+     * 点赞
+     * @param blogId
+     */
+    Blog createVote(Long blogId);
+
+    /**
+     * 取消点赞
+     * @param blogId
+     * @param id
+     */
+    void removeVote(Long blogId, Long id);
 }
