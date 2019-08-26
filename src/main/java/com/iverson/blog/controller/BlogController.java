@@ -82,6 +82,7 @@ public class BlogController {
             List<User> users = esBlogService.listTop12Users();
             model.addAttribute("users", users);
         }
+        log.info("xiaomung",esBlogPage.getTotalPages());
         return (async ? "/index :: #mainContainerRepleace" : "/index");
     }
 

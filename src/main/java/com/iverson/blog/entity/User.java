@@ -80,6 +80,9 @@ public class User implements UserDetails, Serializable {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
+        if (this.authorities == null) {
+            return simpleGrantedAuthorities;
+        }
         for (GrantedAuthority grantedAuthority : this.authorities) {
             simpleGrantedAuthorities.add(new SimpleGrantedAuthority(grantedAuthority.getAuthority()));
         }
