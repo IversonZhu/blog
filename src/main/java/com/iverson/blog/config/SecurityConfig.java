@@ -53,9 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-            .antMatchers("/css/**","/js/**","/fonts/**","/index").permitAll()//均可访问
+            .antMatchers("/static/css/**","/static/js/**","/static/fonts/**","/static/index").permitAll()//均可访问
             .antMatchers("/h2-console/**").permitAll()//均可访问
-            .antMatchers("/admins/**").hasRole("admin")//需要相应的角色才可以访问
+            .antMatchers("/admins/**").hasRole("ADMIN")//需要相应的角色才可以访问
             .and()
             .formLogin()//基于form表单登陆验证
             .loginPage("/login").failureUrl("/login-error")

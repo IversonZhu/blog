@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="~{fragments/header :: header}"></head>
+<head th:replace="fragments/header :: header"></head>
 <body>
     <!-- Page Content -->
     <div class="container blog-content-container">
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div th:replace="~{fragments/page :: page}">...</div>
+                        <div th:replace="fragments/page :: page">...</div>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
         <!-- /.row -->
     </div>
     <!-- /.container -->
-    <div th:replace="~{fragments/footer :: footer}">...</div>
+    <div th:replace="fragments/footer :: footer">...</div>
     <!-- JavaScript -->
     <script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
 </body>

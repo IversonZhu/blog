@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" th-data-fragment="header">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      th:fragment="header">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     
     <!-- CSRF -->
 	<meta name="_csrf" th:content="${_csrf.token}"/>
@@ -12,37 +13,36 @@
 	<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 	
     <!-- Tether core CSS -->
-    <link href="../../static/css/tether.min.css" th:href="@{/css/tether.min.css}" rel="stylesheet">
+    <link href="../../static/css/tether.min.css" th:href="@{/css/tether.min.css}" rel="stylesheet"/>
 
     <!-- Bootstrap CSS -->
-    <link href="../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link href="../../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
 
     <!-- Font-Awesome CSS -->
-    <link href="../../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet">
+    <link href="../../static/css/font-awesome.min.css" th:href="@{/css/font-awesome.min.css}" rel="stylesheet"/>
 
     <!-- NProgress CSS -->
-    <link href="../../static/css/nprogress.css" th:href="@{/css/nprogress.css}" rel="stylesheet">
+    <link href="../../static/css/nprogress.css" th:href="@{/css/nprogress.css}" rel="stylesheet"/>
 
     <!-- thinker-md CSS -->
-    <link href="../../static/css/thinker-md.vendor.css" th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet">
+    <link href="../../static/css/thinker-md.vendor.css" th:href="@{/css/thinker-md.vendor.css}" rel="stylesheet"/>
 
     <!-- bootstrap tags CSS -->
-    <link href="../../static/css/bootstrap-tagsinput.css" th:href="@{/css/jquery.tagsinput.min.css}" rel="stylesheet">
+    <link href="../../static/css/jquery.tagsinput.min.css" th:href="@{/css/jquery.tagsinput.min.css}" rel="stylesheet"/>
     
     <!-- bootstrap chosen CSS -->
-    <link href="../../static/css/component-chosen.min.css" th:href="@{/css/component-chosen.min.css}" rel="stylesheet">
+    <link href="../../static/css/component-chosen.min.css" th:href="@{/css/component-chosen.min.css}" rel="stylesheet"/>
 
     <!-- toastr CSS -->
-    <link href="../../static/css/toastr.min.css" th:href="@{/css/toastr.min.css}" rel="stylesheet">
+    <link href="../../static/css/toastr.min.css" th:href="@{/css/toastr.min.css}" rel="stylesheet"/>
     
     <!-- jQuery image cropping plugin CSS -->
-    <link href="../../static/css/cropbox.css" th:href="@{/css/cropbox.css}" rel="stylesheet">
+    <link href="../../static/css/cropbox.css" th:href="@{/css/cropbox.css}" rel="stylesheet"/>
     
     <!-- Custom styles -->
-    <link href="../../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet">
-    <link href="../../static/css/thymeleaf-bootstrap-paginator.css" th:href="@{/css/thymeleaf-bootstrap-paginator.css}"
-          rel="stylesheet">
-    <link href="../../static/css/blog.css" th:href="@{/css/blog.css}" rel="stylesheet">
+    <link href="../../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+    <link href="../../static/css/thymeleaf-bootstrap-paginator.css" th:href="@{/css/thymeleaf-bootstrap-paginator.css}" rel="stylesheet"/>
+    <link href="../../static/css/blog.css" th:href="@{/css/blog.css}" rel="stylesheet"/>
 </head>
 <body>
     <nav class="navbar navbar-inverse bg-inverse navbar-toggleable-md">
@@ -62,7 +62,7 @@
                         <a class="nav-link" href="javascript:void(0)" th:attr="url='/blogs?order=hot'">最热</a>
                     </li>
                     <form class="form-inline mt-2 mt-md-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="搜索" id="indexkeyword" th:value="${keyword}">
+                        <input class="form-control mr-sm-2" type="text" placeholder="搜索" id="indexkeyword" th:value="${keyword}"/>
                         <a href="javascript:void(0)" class="btn btn-outline-secondary my-2 my-sm-0" id="indexsearch"><i class="fa fa-search" aria-hidden="true"></i></a>
                     </form>
                 </ul>

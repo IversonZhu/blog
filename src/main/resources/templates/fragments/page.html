@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
 </head>
 <body>
 	<nav data-th-fragment="page" data-th-if="${page.totalPages gt 0}" data-th-object="${page}">
@@ -78,21 +78,21 @@
 			   </a>
 			</li>
 			<!-- 最后一页与当前页面之差大于3，且  当前页面大于4-->
-			<li class="page-item disabled" data-th-if="${((page.number + 1) gt 4) && ((page.totalPages-(page.number + 1)) gt 3 )}">
+			<li class="page-item disabled" data-th-if="${((page.number + 1) gt 4) and ((page.totalPages-(page.number + 1)) gt 3 )}">
 				<a href="javascript:void(0);" class="page-link tbpage-item">
 					<span aria-hidden="true">...</span>
 				</a>
 			</li>
-			<li class="page-item" data-th-if="${((page.number + 1) gt 4) && ((page.totalPages-(page.number + 1)) gt 3 )}" >
+			<li class="page-item" data-th-if="${((page.number + 1) gt 4) and ((page.totalPages-(page.number + 1)) gt 3 )}" >
 				<a href="javascript:void(0);" class="page-link tbpage-item" data-th-attr="pageIndex=${page.number}">[[${page.number}]]</a>
 			</li>
-			<li class="page-item active" data-th-if="${((page.number + 1) gt 4) && ((page.totalPages-(page.number + 1)) gt 3 )}">
+			<li class="page-item active" data-th-if="${((page.number + 1) gt 4) and ((page.totalPages-(page.number + 1)) gt 3 )}">
 				<a href="javascript:void(0);" class="page-link tbpage-item" data-th-attr="pageIndex=${page.number} + 1">[[${page.number + 1}]]</a>
 			</li>
-			<li class="page-item" data-th-if="${((page.number + 1) gt 4) && ((page.totalPages-(page.number + 1)) gt 3 )}">
+			<li class="page-item" data-th-if="${((page.number + 1) gt 4) and ((page.totalPages-(page.number + 1)) gt 3 )}">
 				<a href="javascript:void(0);" class="page-link tbpage-item" data-th-attr="pageIndex=${page.number} + 2">[[${page.number + 2}]]</a>
 			</li>
-			<li class="page-item disabled"  data-th-if="${((page.number + 1) gt 4) && ((page.totalPages-(page.number + 1)) gt 3 )}">
+			<li class="page-item disabled"  data-th-if="${((page.number + 1) gt 4) and ((page.totalPages-(page.number + 1)) gt 3 )}">
 				<a href="javascript:void(0);" class="page-link tbpage-item">
 					<span aria-hidden="true">...</span>
 				</a>
