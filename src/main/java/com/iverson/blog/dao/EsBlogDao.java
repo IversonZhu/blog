@@ -13,7 +13,7 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  * @date 2019/8/20
  */
 public interface EsBlogDao extends ElasticsearchRepository<EsBlog,String> {
-    EsBlog findById(Long id);
+    EsBlog findByBlogId(Long id);
 
     Page<EsBlog> findDistinctEsBlogByTitleContainingOrSummaryContainingOrContentContainingOrTagsContaining(String keyword, String keyword1, String keyword2, String keyword3, Pageable pageable);
 }

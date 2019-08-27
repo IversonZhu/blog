@@ -58,7 +58,7 @@ public class EsBlogServiceImpl implements EsBlogService {
 
     @Override
     public EsBlog getEsBlogById(Long id) {
-        return esBlogDao.findById(id);
+        return esBlogDao.findByBlogId(id);
     }
 
     @Override

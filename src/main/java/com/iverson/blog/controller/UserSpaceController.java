@@ -219,7 +219,7 @@ public class UserSpaceController {
         model.addAttribute("blogModel", blog);
         model.addAttribute("currentVote", currentVote);
 
-        return "userspace/blogs";
+        return "userspace/blog";
     }
 
     /**

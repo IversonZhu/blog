@@ -82,7 +82,6 @@ public class BlogController {
             List<User> users = esBlogService.listTop12Users();
             model.addAttribute("users", users);
         }
-        log.info("xiaomung",esBlogPage.getTotalPages());
         return (async ? "/index :: #mainContainerRepleace" : "/index");
     }
 
@@ -103,7 +102,7 @@ public class BlogController {
      * @param model
      * @return
      */
-    @GetMapping("hottest")
+    @GetMapping("/hottest")
     public String listHottestEsBlogs(Model model) {
         List<EsBlog> hottest = esBlogService.listTop5HottestEsBlogs();
         model.addAttribute("hottest", hottest);

@@ -24,9 +24,6 @@ $(function() {
 				 "keyword":$("#indexkeyword").val()
 			 },
 			 success: function(data){
-			 	if(data){
-                    alert(data);
-				}
 				 $("#mainContainer").html(data);
 				 
 				 var keyword = $("#indexkeyword").val();
