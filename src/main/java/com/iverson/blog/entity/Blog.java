@@ -46,9 +46,6 @@ public class Blog implements Serializable {
 
     @Lob
     @Basic(fetch = FetchType.LAZY)
-    @NotEmpty(message = "内容不能为空")
-    @Size(min = 2)
-    @Column(nullable = false)
     private String htmlContent;
 
     @OneToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)

@@ -9,7 +9,6 @@
 
 // DOM 加载完再执行
 $(function() {
- 
 	// 初始化 md 编辑器
     $("#md").markdown({
         language: 'zh',
@@ -21,8 +20,6 @@ $(function() {
         imgurl: 'http://localhost:8081',
         base64url: 'http://localhost:8081'
     });
- 
-
     
     // 初始化下拉
     $('.form-control-chosen').chosen();
@@ -45,7 +42,6 @@ $(function() {
 		    success: function(data){
 		    	var mdcontent=$("#md").val();
 		    	 $("#md").val(mdcontent + "\n![]("+data +") \n");
- 
 	         }
 		}).done(function(res) {
 			$('#file').val('');
@@ -54,11 +50,11 @@ $(function() {
  
  	// 发布博客
  	$("#submitBlog").click(function() {
- 		
 		// 获取 CSRF Token 
 		var csrfToken = $("meta[name='_csrf']").attr("content");
 		var csrfHeader = $("meta[name='_csrf_header']").attr("content");
-
+		//var a = localStorage.getItem("md")
+		//alert(a)
 		$.ajax({
 		    url: '/u/'+ $(this).attr("userName") + '/blogs/edit',
 		    type: 'POST',
@@ -66,7 +62,7 @@ $(function() {
 		    data:JSON.stringify({"id":$('#blogId').val(), 
 		    	"title": $('#title').val(), 
 		    	"summary": $('#summary').val() , 
-		    	"content": $('#md').val(), 
+		    	"content": $('#md').val(),
 		    	"catalog":{"id":$('#catalogSelect').val()},
 		    	"tags":$('.form-control-tag').val()
 		    	}),
@@ -80,13 +76,10 @@ $(function() {
 				 } else {
 					 toastr.error("error!"+data.message);
 				 }
-				 
 		     },
 		     error : function() {
 		    	 toastr.error("error!");
 		     }
 		})
  	})
- 	
- 	
 });

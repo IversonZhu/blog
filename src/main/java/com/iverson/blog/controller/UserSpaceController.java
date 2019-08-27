@@ -1,5 +1,6 @@
 package com.iverson.blog.controller;
 
+import com.github.rjeschke.txtmark.Processor;
 import com.iverson.blog.entity.Blog;
 import com.iverson.blog.entity.Catalog;
 import com.iverson.blog.entity.User;
@@ -290,10 +291,12 @@ public class UserSpaceController {
                 originalBlog.setSummary(blog.getSummary());
                 originalBlog.setCatalog(blog.getCatalog());
                 originalBlog.setTags(blog.getTags());
+                originalBlog.setHtmlContent(Processor.process(blog.getContent()));
                 blogService.saveBlog(originalBlog);
             } else {
                 User user = (User)userDetailsService.loadUserByUsername(username);
                 blog.setUser(user);
+                blog.setHtmlContent(Processor.process(blog.getContent()));
                 blogService.saveBlog(blog);
             }
         } catch (ConstraintViolationException e) {

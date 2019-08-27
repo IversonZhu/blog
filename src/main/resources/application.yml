@@ -21,6 +21,19 @@ spring:
     mode: HTML5
   jpa:
     show-sql: true
+  h2:
+    console:
+      enabled: true
+  data:
+    elasticsearch:
+      cluster-nodes: localhost:9300
+      properties:
+        transport:
+          tcp:
+            connect_timeout: 120s
 file:
   server:
     url: http://localhost:8080/uploads
+
+
+
